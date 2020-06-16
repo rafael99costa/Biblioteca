@@ -1,0 +1,26 @@
+{
+    "name": "rafaelcosta/biblioteca",
+    "description": "Trabalho biblioteca",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Costa",
+            "email": "rafael99costa@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "slim/slim": "4.5.0",
+        "slim/psr7": "1.1.0",
+        "tuupola/slim-jwt-auth": "3.x-dev"
+    },
+    "config": {
+        "vendor-dir": "lib_ext"
+    },
+    "autoload": {
+        "psr-4": {
+            "_app\\": "_app"
+        }
+    }
+}
