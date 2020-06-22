@@ -43,9 +43,8 @@ CREATE TABLE emprestimo(
 
 CREATE TABLE devolucao(
 	iddevolucao int not null PRIMARY KEY AUTO_INCREMENT,
-	emprestimo_idemprestimo int not null,
-	datadevolucao datetime default null,
-	FOREIGN KEY(emprestimo_idemprestimo) REFERENCES emprestimo(idemprestimo)
+	emprestimo int not null,
+	datadevolucao datetime default null
 );
 
 INSERT INTO autores(idautores, nomeautor, paisorigem) VALUES (1,"Stephen King", "Estados Unidos");

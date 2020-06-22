@@ -5,12 +5,10 @@ use _app\Models\Devolucao;
 class DevolucaoDAO{
 
     public function inserir(Devolucao $devolucao){
-        // INSERT INTO livrodevolvido(livros_idlivros, clientes_idclientes, datadevolucao) VALUES (1,1, NOW())
-        $sqlInserir = "INSERT INTO devolucao(emprestimo_idemprestimo, datadevolucao)
-        VALUES (:emprestimo, NOW())";
+        $sqlInserir = "INSERT INTO devolucao(emprestimo, datadevolucao) VALUES (:emprestimo, NOW())";
         $pdo = PDOFactory::getConexao();
         $comando = $pdo->prepare($sqlInserir);
-        $comando->bindValue(":emprestimo",$devolucao->emprestimo->getId());
+        $comando->bindValue(":emprestimo", $devolucao->getEmprestimo());
         $comando->execute();
     }
 
@@ -23,11 +21,21 @@ class DevolucaoDAO{
     }
 
     public function buscarPorId($id){
-        $query = 'SELECT * FROM devolucao WHERE emprestimo_idemprestimo=:id';		
+        $query = 'SELECT * FROM devolucao WHERE emprestimo=:id';		
         $pdo = PDOFactory::getConexao(); 
         $comando = $pdo->prepare($query);
         $comando->bindParam ('id', $id);
         $comando->execute();
         return $comando->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function buscarEmprestimo($id)
+    {
+        $query = 'SELECT emprestimo FROM devolucao WHERE emprestimo=:id';
+        $pdo = PDOFactory::getConexao(); 
+        $comando = $pdo->prepare($query);
+        $comando->bindParam('id', $id);
+        $comando->execute();
+        return $comando->fetch(PDO::FETCH_COLUMN);
     }
 }

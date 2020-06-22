@@ -9,10 +9,11 @@ class Devolucao{
     public $datadevolucao;
     public $emprestimo;
 
-    public function __construct($id, $emprestimo)
+    public function __construct($id, $emprestimo, $datadevolucao)
     {      
         $this->id = $id;   
         $this->emprestimo = $emprestimo;  
+        $this->datadevolucao = $datadevolucao;  
     }
 
     public function setId($id) {

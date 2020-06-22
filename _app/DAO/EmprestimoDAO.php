@@ -64,6 +64,15 @@ class EmprestimoDAO
         );
     }
 
+    public function buscarPorId($id){
+        $query = 'SELECT * FROM emprestimo WHERE idemprestimo=:id';		
+        $pdo = PDOFactory::getConexao(); 
+        $comando = $pdo->prepare($query);
+        $comando->bindParam ('id', $id);
+        $comando->execute();
+        return $comando->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
     public function listarPorCliente($id){
         $query = 'SELECT * FROM emprestimo WHERE clientes_idclientes=:id';		
         $pdo = PDOFactory::getConexao(); 
