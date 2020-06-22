@@ -85,7 +85,7 @@ class LivrosController{
             $livro = $dao->listarPorNome($id);
             $livro = json_encode($livro);
             if($livro == "[]"){
-                $response->getBody()->write("Vcê não está digitando o nome corretamente o nome do livro ou não existe!");
+                $response->getBody()->write("Você não está digitando corretamente o nome do livro ou não existe!");
             }else{
                 $response->getBody()->write($livro);
             }

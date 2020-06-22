@@ -7,21 +7,30 @@ class FuncionariosDAO{
     public function inserir(Funcionarios $funcionarios){
         $sqlInserir = "INSERT INTO funcionarios(nome, usuario, senha) VALUES (:nome,:usuario, :senha)";
         $pdo = PDOFactory::getConexao();
+
+
+        $senha = $funcionarios->getSenha();
+        $senhaCrip = password_hash($senha, PASSWORD_BCRYPT);
+
         $comando = $pdo->prepare($sqlInserir);
         $comando->bindValue(":nome",$funcionarios->getNome());
         $comando->bindValue(":usuario",$funcionarios->getUsuario());
-        $comando->bindValue(":senha",$funcionarios->getSenha());
+        $comando->bindValue(":senha",$senhaCrip);
         $comando->execute();
     }
 
     public function atualizar(Funcionarios $funcionarios){
         $sqlAtualizar = "UPDATE funcionarios SET nome=:nome, usuario=:usuario, senha=:senha WHERE idfuncionarios=:id";            
         $pdo = PDOFactory::getConexao();
+
+        $senha = $funcionarios->getSenha();
+        $senhaCrip = password_hash($senha, PASSWORD_BCRYPT);
+
         $comando = $pdo->prepare($sqlAtualizar);
         $comando->bindValue(":id",$funcionarios->getId());
         $comando->bindValue(":nome",$funcionarios->getNome());
         $comando->bindValue(":usuario",$funcionarios->getUsuario());
-        $comando->bindValue(":senha",$funcionarios->getSenha());
+        $comando->bindValue(":senha",$senhaCrip);
         $comando->execute();   
     }
 

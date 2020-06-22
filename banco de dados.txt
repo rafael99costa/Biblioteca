@@ -3,8 +3,8 @@ CREATE DATABASE biblioteca;
 CREATE TABLE funcionarios(
 	idfuncionarios int not null PRIMARY KEY AUTO_INCREMENT,
 	nome varchar(70),
-	usuario varchar(20),
-	senha varchar(250)
+	usuario varchar(11),
+	senha varchar(120)
 );
 
 CREATE TABLE autores(
@@ -15,7 +15,7 @@ CREATE TABLE autores(
 
 CREATE TABLE clientes(
 	idclientes int not null PRIMARY KEY AUTO_INCREMENT,
-	matricula int,
+	matricula varchar(11),
 	nomecliente varchar(50),
 	telefone int
 );
@@ -49,8 +49,8 @@ CREATE TABLE devolucao(
 );
 
 INSERT INTO autores(idautores, nomeautor, paisorigem) VALUES (1,"Stephen King", "Estados Unidos");
-INSERT INTO clientes(idclientes, matricula, nomecliente, telefone) VALUES (1, 020120041, "Lucas", 999999999);
+INSERT INTO clientes(idclientes, matricula, nomecliente, telefone) VALUES (1, 08840640998, "Lucas", 999999999);
 INSERT INTO livros(idlivros, isbn, nomelivro, editora, anopublicacao, quantidade, autor_idautores) VALUES (1, 8560280944, "It – A Coisa","Suma", 2014, 5, 1);
-INSERT INTO funcionarios(idfuncionarios, nome, usuario, senha) VALUES (1, "Rafael","rafaelcosta","costa");
+INSERT INTO funcionarios(idfuncionarios, nome, usuario, senha) VALUES (1, "Rafael","08845984634","costa");
 INSERT INTO emprestimo(idemprestimo, livros_idlivros, clientes_idclientes, dataemprestimo, datadevolucao) VALUES (1,1,1, NOW(), NOW() + interval 14 DAY);
 INSERT INTO devolucao(iddevolucao, emprestimo_idemprestimo, datadevolucao) VALUES (1,1, NOW());
