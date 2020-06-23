@@ -61,7 +61,11 @@ class FuncionariosController
         
         $dao= new FuncionariosDAO;    
         $usuario = $dao->buscarPorLogin($user['usuario']);
-        if($usuario->senha == $user['senha'])
+
+        $senhaEnc = $usuario->senha;
+        $senhaUsu = $user['senha'];
+
+        if(password_verify($senhaUsu, $senhaEnc))
         {
             $token = array(
                 'user' => strval($usuario->id),

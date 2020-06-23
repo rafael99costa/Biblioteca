@@ -1,7 +1,6 @@
 <?php
 
 use _app\Models\Devolucao;
-use _app\Models\Emprestimo;
 use _app\Models\Livros;
 
 include_once('_app/DAO/DevolucaoDAO.php');
@@ -18,7 +17,6 @@ class DevolucaoController{
     }
         
     public function inserir($request, $response, $args){
-        //Adicione nome e preço no request (formato JSON)
         $dao = new DevolucaoDAO;
         $daoEmprestimo = new EmprestimoDAO;
         $daoLivros = new LivrosDAO;
@@ -29,8 +27,6 @@ class DevolucaoController{
         $buscarEmprestimo = $dao->buscarEmprestimo($emp);
         $busEmp[] = $buscarEmprestimo;
         
-        // $devol = $dao->buscarPorId($emp);
-        // $num = count($devol);
         $a = $daoEmprestimo->buscarPorId($emp);
         $ab = count($a);
 

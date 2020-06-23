@@ -65,7 +65,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"matricula\": 2072004,\r\n        \"nomecliente\": \"Lucas\",\r\n        \"telefone\": 999999999\r\n    }",
+							"raw": "{\r\n        \"matricula\": 2072004,\r\n        \"nomecliente\": \"Gabriel\",\r\n        \"telefone\": 999999999\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -179,7 +179,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"autor_idautores\": 1,\r\n    \"isbn\": 8578886437,\r\n    \"nomelivro\": \"O cortiço\",\r\n    \"editora\": \"Panda\",\r\n    \"anopublicacao\": 2017,\r\n    \"quantidade\": 1\r\n}",
+							"raw": "{\r\n    \"autor_idautores\": 1,\r\n    \"isbn\": 8578886437,\r\n    \"nomelivro\": \"O cortiço\",\r\n    \"editora\": \"Panda\",\r\n    \"anopublicacao\": 2017,\r\n    \"quantidade\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -293,7 +293,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"emprestimo\": {\"id\": 1}  \r\n}",
+							"raw": "{\r\n    \"emprestimo\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -895,13 +895,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseurl}}/autores/1",
+							"raw": "{{baseurl}}/autores/2",
 							"host": [
 								"{{baseurl}}"
 							],
 							"path": [
 								"autores",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -995,7 +995,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"usuario\": \"rafaelcosta\",\r\n    \"senha\": \"costa\"\r\n}",
+					"raw": "{\r\n    \"usuario\": \"rafaelcosta\",\r\n    \"senha\": \"$2y$10$dHhzGyaW1J34nhM/itxEqu4ZU.UoG7fwvdIamEgn50NgOLSMAFKhK\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
