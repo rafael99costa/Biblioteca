@@ -42,7 +42,7 @@ class FuncionariosController
         $funcionario = $dao->atualizar($funcionario);
     
         $response->getBody()->write("Atualização de {$data['nome']} realizada!");
-        return $response;
+        return $response->withStatus(201);
     }
     
     public function deletar($request, $response, $args)

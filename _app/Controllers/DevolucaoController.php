@@ -35,11 +35,11 @@ class DevolucaoController{
 
         if(in_array($emp, $busEmp)){
             $response->getBody()->write("O livro já foi devolvido pelo cliente");
-            return $response;
+            return $response->withStatus(500);
         }
         elseif($ab == 0){
             $response->getBody()->write("Não existe o codigo de emprestimo");
-            return $response;
+            return $response->withStatus(500);
         }
         
         $emprestimos = $daoEmprestimo->listarPorId($emp);
@@ -80,10 +80,10 @@ class DevolucaoController{
 
             if($multa > 0){
                 $response->getBody()->write("Dias de multa: {$multa} \n Devolução Efetuada");
-                return $response;
+                return $response->withStatus(201);
             }else{
                 $response->getBody()->write("Entrega no prazo \n Devolução Efetuada");
-                return $response;
+                return $response->withStatus(201);
             }
         }
     }

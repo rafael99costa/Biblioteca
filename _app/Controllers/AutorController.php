@@ -22,8 +22,7 @@ class AutorController{
         $autor = $dao->inserir($autor);
     
         $response->getBody()->write("Cadastro do autor {$data['nomeautor']} realizado!");
-        return $response;
-    
+        return $response->withStatus(201);
         }
     
         public function atualizar($request, $response, $args) {

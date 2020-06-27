@@ -24,7 +24,7 @@ class LivrosController{
         $livro = $dao->inserir($livro);
     
         $response->getBody()->write("Cadastro do livro {$data['nomelivro']} realizado!");
-        return $response;
+        return $response->withStatus(201);
     
         }
     

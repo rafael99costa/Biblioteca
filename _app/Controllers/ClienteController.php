@@ -22,7 +22,7 @@ class ClienteController{
         $cliente = $dao->inserir($cliente);
     
         $response->getBody()->write("Cadastro de {$data['nomecliente']} realizado!");
-        return $response;
+        return $response->withStatus(201);
     
         }
     

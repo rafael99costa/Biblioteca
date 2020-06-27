@@ -46,19 +46,19 @@ class EmprestimoController{
             $livros = $daoLivros->atualizar($livros);
 
             $response->getBody()->write("Cadastro realizado!");
-            return $response;
+            return $response->withStatus(201);
         }
         elseif($quantidade <= 0){
             $response->getBody()->write("O livro não está disponível para emprestimo!");
-            return $response;
+            return $response->withStatus(500);
         }
         elseif($numeroCliente = 3){
             $response->getBody()->write("O cliente já possui mais de 3 livro retirados!");
-            return $response;
+            return $response->withStatus(500);
         }
         else{
             $response->getBody()->write("O cadastro não foi realizado!");
-            return $response;
+            return $response->withStatus(500);
         }
     }
 }
